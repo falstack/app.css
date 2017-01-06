@@ -1,0 +1,34 @@
+button {
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  display: block;
+  font-size: $base-font-size;
+  padding: $base-padding;
+
+  &:hover, &:focus {
+    outline: none;
+  }
+}
+
+.btn-radius {
+  border-radius: $base-radius;
+}
+
+
+@mixin btn-color($bg, $bg-hover, $color) {
+  background-color: $bg;
+  color: $color;
+  transition: $base-transition;
+
+  &:hover {
+    background-color: $bg-hover;
+    transition-duration: 0s;
+  }
+}
+
+.btn-blue {
+  @include btn-color($color-blue, $color-blue-hover, #fff);
+}
