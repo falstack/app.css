@@ -4,8 +4,10 @@
 @import "varibiles";
 @import "button";
 
-button,
-input,
-textarea {
-  width: 100%;
+@media (max-width: 767px) {
+  button,
+  input,
+  textarea {
+    width: 100%;
+  }
 }
