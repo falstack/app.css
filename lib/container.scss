@@ -5,15 +5,10 @@
   padding-right: 10px;
 }
 
-// 在1440宽度以下的设备上，container宽度为100%
-@media (min-width: 1440px) {
+@media (min-width: $max-device-width) {
   .container {
-    width: 1440px;
+    width: $max-device-width;
   }
-}
-
-.row {
-
 }
 
 .col-sm-1, .col-md-1, .col-pc-1,
@@ -556,42 +551,44 @@
   visibility: visible !important;
 }
 
-.only-sm,
-.only-md,
+.only-mobi,
+.only-pad,
 .only-pc {
   display: none !important;
 }
 
 @media (max-width: 767px) {
-  .only-sm {
+  .only-mobi {
     display: block !important;
   }
-  table.only-sm {
+  table.only-mobi {
     display: table !important;
   }
-  tr.only-sm {
+  tr.only-mobi {
     display: table-row !important;
   }
-  th.only-sm,
-  td.only-sm {
+  th.only-mobi,
+  td.only-mobi {
     display: table-cell !important;
   }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
-  .only-md {
+  .only-pad {
     display: block !important;
   }
-  table.only-md {
+  table.only-pad {
     display: table !important;
   }
-  tr.only-md {
+  tr.only-pad {
     display: table-row !important;
   }
-  th.only-md,
-  td.only-md {
+  th.only-pad,
+  td.only-pad {
     display: table-cell !important;
   }
 }
+
 @media (min-width: 992px) {
   .only-pc {
     display: block !important;

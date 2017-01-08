@@ -32,3 +32,23 @@ button {
 .btn-blue {
   @include btn-color($color-blue, $color-blue-hover, #fff);
 }
+
+.btn-pink {
+  @include btn-color($color-pink, $color-pink-hover, #fff);
+}
+
+.btn-yellow {
+  @include btn-color($color-yellow, $color-yellow-hover, #fff);
+}
+
+.btn-red {
+  @include btn-color($color-red, $color-red-hover, #fff);
+}
+
+.btn-green {
+  @include btn-color($color-green, $color-green-hover, #fff);
+}
+
+.btn-gray {
+  @include btn-color($color-gray, $color-gray-hover, #fff);
+}

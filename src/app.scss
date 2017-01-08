@@ -1,7 +1,8 @@
+@import "varibiles";
 @import "../lib/normalize";
 @import "../lib/reboot";
 @import "../lib/container";
-@import "varibiles";
+@import "components";
 @import "button";
 
 @media (max-width: 767px) {
