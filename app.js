@@ -31,10 +31,13 @@ addEvent(document.body, 'click', function (e) {
     var len = arr.length;
     for (var i=0; i<len; i++) {
         if (arr[i] === 'app-ui-wave') {
+            var self = e.target;
+            self.style.position = 'relative';
+            self.style.overflow = 'hidden';
             var dom = document.createElement("div");
 
-            var initLeft = e.layerX - (e.target.offsetWidth - e.target.clientWidth) / 2;
-            var initTop = e.layerY - (e.target.offsetHeight - e.target.clientHeight) / 2;
+            var initLeft = e.layerX - (self.offsetWidth - self.clientWidth) / 2;
+            var initTop = e.layerY - (self.offsetHeight - self.clientHeight) / 2;
             var initSize = 0;
             var initTime = 0.4;
             var initFunc = 'linear';
@@ -52,16 +55,16 @@ addEvent(document.body, 'click', function (e) {
             dom.style.transitionTimingFunction = initFunc;
             dom.style.webkitTransitionTimingFunction = initFunc;
 
-            e.target.appendChild(dom);
+            self.appendChild(dom);
 
-            var r = Math.sqrt(Math.pow(e.target.offsetWidth, 2) + Math.pow(e.target.offsetHeight, 2));
+            var r = Math.sqrt(Math.pow(self.offsetWidth, 2) + Math.pow(self.offsetHeight, 2));
             dom.style.width = r * 2 + 'px';
             dom.style.height = r * 2 + 'px';
             dom.style.left = initLeft - r + 'px';
             dom.style.top = initTop - r + 'px';
             dom.style.backgroundColor = 'rgba(0, 0, 0, .1)';
             setTimeout(function () {
-                e.target.removeChild(dom);
+                self.removeChild(dom);
             }, initTime * 1000);
         }
     }
