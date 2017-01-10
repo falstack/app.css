@@ -1,6 +1,7 @@
 import './src/app.scss'
 import './src/container.scss'
 import './src/button.scss'
+import './src/list.scss'
 
 var addEvent = (function () {
     if (document.addEventListener) {

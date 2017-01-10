@@ -38,12 +38,10 @@ canvas {
   display: inline-block;
 }
 
-button {
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  touch-action: manipulation;
-  cursor: pointer;
+textarea, input, select, label {
+  font-size: 100%;
+  line-height: inherit;
+  font-family: sans-serif;
 }
 
 textarea {
@@ -79,20 +77,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-bottom: 0;
 }
 
 img {

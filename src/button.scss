@@ -1,5 +1,16 @@
 @import "varibiles";
 
+button {
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: inherit;
+  font-family: sans-serif;
+}
+
 .btn {
   border: none;
   display: inline-block;
