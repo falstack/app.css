@@ -69,6 +69,11 @@ button:-moz-focusring,
   -webkit-appearance: none;
 }
 
+[role="button"] {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
@@ -76,4 +81,18 @@ button:-moz-focusring,
 
 [hidden] {
   display: none;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover, &:focus, &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }
