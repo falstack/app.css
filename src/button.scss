@@ -1,14 +1,23 @@
+@import "varibiles";
+
 button {
   cursor: pointer;
 }
 
 .btn {
   border: none;
-  display: block;
+  display: inline-block;
   font-size: $base-font-size;
-  padding: $base-padding;
 
-  &:hover, &:focus {
+  @media (min-width: $min-pad-width) {
+    padding: $base-click-padding;
+  }
+
+  @media (max-width: $max-phone-width) {
+    padding: $base-touch-padding;
+  }
+
+  &:hover, &:focus, &:active {
     outline: none;
   }
 }
@@ -21,11 +30,21 @@ button {
 @mixin btn-color($bg, $bg-hover, $color) {
   background-color: $bg;
   color: $color;
-  transition: $base-transition;
+  transition-duration: $base-transition;
+  transition-property: background-color;
 
-  &:hover {
-    background-color: $bg-hover;
-    transition-duration: 0s;
+  @media (min-width: $min-pc-width) {
+    &:hover {
+      background-color: $bg-hover;
+      transition-duration: 0s;
+    }
+  }
+
+  @media (max-width: $max-pad-width) {
+    &:active {
+      background-color: $bg-hover;
+      transition-duration: 0s;
+    }
   }
 }
 

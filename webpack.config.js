@@ -7,19 +7,21 @@ module.exports = {
         path: "./build",
         filename: "app-ui.js"
     },
-    postcss: [ autoprefixer({
-        browsers: [
-            'ie >= 8',
-            'ie_mob >= 10',
-            'ff >= 26',
-            'chrome >= 30',
-            'safari >= 6',
-            'opera >= 23',
-            'ios >= 5',
-            'android >= 2.3',
-            'bb >= 10'
-        ]
-    }) ],
+    postcss: [
+        require('autoprefixer')({
+            browsers: [
+                'ie >= 8',
+                'ie_mob >= 10',
+                'ff >= 26',
+                'chrome >= 30',
+                'safari >= 6',
+                'opera >= 23',
+                'ios >= 5',
+                'android >= 2.3',
+                'bb >= 10'
+            ]
+        })
+    ],
     module: {
         loaders: [
             { test: /\.(png|jpe?g|gif|svg|swf|eot|ttf|woff)(\?.*)?$/, loader: 'url?limit=50000' },

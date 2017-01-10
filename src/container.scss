@@ -1,3 +1,13 @@
+@import "varibiles";
+
+@media (max-width: $max-phone-width) {
+  button,
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -28,7 +38,7 @@
 }
 
 // 手机-sm
-@media (max-width: 767px) {
+@media (max-width: $max-phone-width) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
@@ -188,7 +198,7 @@
 }
 
 // Pad md
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: $min-pad-width) and (max-width: $max-pad-width) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
@@ -348,7 +358,7 @@
 }
 
 // PC lg
-@media (min-width: 992px) {
+@media (min-width: $min-pc-width) {
   .col-pc-1, .col-pc-2, .col-pc-3, .col-pc-4, .col-pc-5, .col-pc-6, .col-pc-7, .col-pc-8, .col-pc-9, .col-pc-10, .col-pc-11, .col-pc-12 {
     float: left;
   }
@@ -557,7 +567,7 @@
   display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: $max-phone-width) {
   .only-mobi {
     display: block !important;
   }
@@ -573,7 +583,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: $min-pad-width) and (max-width: $max-pad-width) {
   .only-pad {
     display: block !important;
   }
@@ -589,7 +599,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: $min-pc-width) {
   .only-pc {
     display: block !important;
   }

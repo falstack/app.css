@@ -1,4 +1,6 @@
 import './src/app.scss'
+import './src/container.scss'
+import './src/button.scss'
 
 var addEvent = (function () {
     if (document.addEventListener) {

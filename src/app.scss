@@ -1,14 +1,2 @@
-@import "varibiles";
 @import "../lib/normalize";
 @import "../lib/reboot";
-@import "../lib/container";
-@import "components";
-@import "button";
-
-@media (max-width: 767px) {
-  button,
-  input,
-  textarea {
-    width: 100%;
-  }
-}
