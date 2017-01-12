@@ -99,6 +99,7 @@ ul {
 
   .toggle-left:before, .toggle-right:before {
     cursor: pointer;
+    transition-delay: $base-transition;
   }
 
   .toggle-left {

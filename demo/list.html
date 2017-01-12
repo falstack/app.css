@@ -7,13 +7,15 @@
     <title>App-ui.css - list</title>
 </head>
 <body style="background-color: #eee">
-<div class="container">
+<div id="warp" class="container">
     <div class="col-lg-6 col-lg-offset-3">
         <ul class="list list-border">
-            <li class="app-ui-wave toggle toggle-left">带开关的 list 不能添加 status</li>
-            <li class="app-ui-wave toggle toggle-right">带开关的 list 不能添加 status</li>
+            <li>带 toggle 的 list</li>
+            <li @click="btn1 = !btn1" :class="['app-ui-wave', 'toggle', btn1 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加 status 类</li>
+            <li @click="btn2 = !btn2" :class="['app-ui-wave', 'toggle', btn2 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加 status 类</li>
         </ul>
         <ol class="list list-shadow list-hover">
+            <li>带 status 的 list</li>
             <li class="success">成功</li>
             <li class="warning">警告</li>
             <li class="error">错误</li>
@@ -22,5 +24,17 @@
     </div>
 </div>
 <script src="./../build/app-ui.js"></script>
+<script src="http://cdn.bootcss.com/vue/2.0.1/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#warp',
+        data () {
+            return {
+                btn1: false,
+                btn2: true
+            }
+        }
+    });
+</script>
 </body>
 </html>
