@@ -8,3 +8,139 @@ ul {
   font-size: $base-font-size;
   list-style: none;
 }
+
+.list {
+  margin-bottom: 2.6em;
+  background-color: #fff;
+  margin-left: -$base-device-padding;
+  margin-right: -$base-device-padding;
+
+  li {
+    border-bottom: 1px solid $color-gray;
+    line-height: 2.6;
+    padding-left: $base-device-padding;
+    padding-right: $base-device-padding;
+    position: relative;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &:first-child {
+    margin-top: 3em;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .success, .warning, .error, .info {
+    padding-left: 3em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      display: block;
+      border-radius: 50%;
+      left: 1em;
+      top: 50%;
+      margin-top: -7px;
+    }
+  }
+
+  .success:before {
+    background-color: $color-green-hover;
+  }
+
+  .warning:before {
+    background-color: $color-yellow-hover;
+  }
+
+  .error:before {
+    background-color: $color-red-hover;
+  }
+
+  .info:before {
+    background-color: $color-blue-hover;
+  }
+
+  .toggle {
+    padding-right: 6em;
+
+    &:before {
+      content: '';
+      height: 1.6em;
+      width: 3.4em;
+      position: absolute;
+      right: 1em;
+      top: 50%;
+      margin-top: -0.8em;
+      border-radius: 0.8em;
+    }
+  }
+
+  .toggle-left:after, .toggle-right:after {
+    content: '';
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.7em;
+    background-color: #fff;
+    cursor: pointer;
+    transition-duration: $base-transition;
+    transition-property: right;
+    transition-timing-function: ease-in-out;
+  }
+
+  .toggle-left:before, .toggle-right:before {
+    cursor: pointer;
+  }
+
+  .toggle-left {
+
+    &:before {
+      background-color: $color-gray;
+    }
+
+    &:after {
+      right: 2.9em;
+    }
+  }
+
+  .toggle-right {
+
+    &:before {
+      background-color: $color-blue;
+    }
+
+    &:after {
+      right: 1.1em;
+    }
+  }
+}
+
+.list-border {
+  border-top: 1px solid $color-gray;
+  border-bottom: 1px solid $color-gray;
+}
+
+.list-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.list-hover li {
+  @media (min-width: $min-pad-width) {
+    transition-duration: $base-transition;
+    transition-property: background-color;
+
+    &:hover {
+      transition-duration: 0s;
+      background-color: $color-gray;
+    }
+  }
+}

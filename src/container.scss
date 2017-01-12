@@ -11,8 +11,8 @@
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: $base-device-padding;
+  padding-right: $base-device-padding;
 }
 
 @media (min-width: $max-device-width) {
