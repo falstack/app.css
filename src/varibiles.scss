@@ -22,13 +22,15 @@ $color-red: #fc605c;
 $color-red-hover: #c84c44;
 
 $max-device-width: 1440px;
-$max-pad-width: 991px;
-$min-pc-width: $max-pad-width + 1;
+$max-pad-width: 1024px;
 $max-phone-width: 767px;
+$min-pc-width: $max-pad-width + 1;
 $min-pad-width: $max-phone-width + 1;
 
 $base-font-size: 14px;
 $base-transition: .4s;
-$base-click-padding: 8px 12px;
-$base-touch-padding: 14px 6px;
+$base-click-padding-hgt: 8px;
+$base-touch-padding-hgt: 14px;
+$base-click-padding-wid: 12px;
+$base-touch-padding-wid: 6px;
 $base-radius: 5px;

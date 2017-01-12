@@ -9,6 +9,7 @@ button {
   font-size: 100%;
   line-height: inherit;
   font-family: sans-serif;
+  width: 100%;
 }
 
 .btn {
@@ -17,11 +18,11 @@ button {
   font-size: $base-font-size;
 
   @media (min-width: $min-pad-width) {
-    padding: $base-click-padding;
+    padding: $base-click-padding-hgt $base-click-padding-wid;
   }
 
   @media (max-width: $max-phone-width) {
-    padding: $base-touch-padding;
+    padding: $base-touch-padding-hgt $base-touch-padding-wid;
   }
 
   &:hover, &:focus, &:active {
@@ -77,4 +78,23 @@ button {
 
 .btn-gray {
   @include btn-color($color-gray, $color-gray-hover, #fff);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: $color-blue;
+  border: 1px solid $color-blue;
+
+  @media (min-width: $min-pad-width) {
+    padding: ($base-click-padding-hgt - 1) ($base-click-padding-wid - 1);
+  }
+
+  @media (max-width: $max-phone-width) {
+    padding: ($base-touch-padding-hgt - 1) ($base-touch-padding-wid - 1);
+  }
+
+  &:active {
+    border-color: $color-blue-hover;
+    color: $color-blue-hover;
+  }
 }
