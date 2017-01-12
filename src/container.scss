@@ -21,6 +21,11 @@
   }
 }
 
+.row {
+  margin-left: -$base-device-padding;
+  margin-right: -$base-device-padding;
+}
+
 .col-sm-1, .col-lg-1,
 .col-sm-2, .col-lg-2,
 .col-sm-3, .col-lg-3,
