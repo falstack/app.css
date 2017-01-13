@@ -10,7 +10,6 @@ ul {
 }
 
 .list {
-  margin-bottom: 2.6em;
   background-color: #fff;
   margin-left: -$base-device-padding;
   margin-right: -$base-device-padding;
@@ -27,16 +26,11 @@ ul {
     }
   }
 
-  &:first-child {
-    margin-top: 3em;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  .success, .warning, .error, .info {
+  .ico {
     padding-left: 3em;
+    background-size: 1em;
+    background-position: 1em center;
+    background-repeat: no-repeat;
 
     &:before {
       content: '';
@@ -135,11 +129,18 @@ ul {
 }
 
 .list-hover li {
-  @media (min-width: $min-pad-width) {
-    transition-duration: $base-transition;
-    transition-property: background-color;
+  transition-duration: $base-transition;
+  transition-property: background-color;
 
+  @media (min-width: $min-pc-width) {
     &:hover {
+      transition-duration: 0s;
+      background-color: $color-gray;
+    }
+  }
+
+  @media (max-width: $max-pad-width) {
+    &:active {
       transition-duration: 0s;
       background-color: $color-gray;
     }
