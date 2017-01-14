@@ -1,10 +1,4 @@
-@import "../lib/normalize";
-@import "../lib/reboot";
-@import "varibiles";
-
-body {
-  background-color: $body-color;
-}
+@import "./varibiles";
 
 .hr {
   position: relative;

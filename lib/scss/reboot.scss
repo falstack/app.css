@@ -26,6 +26,7 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
   touch-action: manipulation;
+  cursor: pointer;
 
   &:active, &:hover {
     outline-width: 0;

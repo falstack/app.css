@@ -1,7 +1,9 @@
-import './src/app.scss'
-import './src/container.scss'
-import './src/button.scss'
-import './src/list.scss'
+import './src/scss/app.scss'
+import './src/scss/container.scss'
+import './src/scss/button.scss'
+import './src/scss/list.scss'
+import './src/scss/hr.scss'
+import './src/scss/tag.scss'
 
 var addEvent = (function () {
     if (document.addEventListener) {

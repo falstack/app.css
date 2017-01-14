@@ -14,7 +14,7 @@ ul {
   margin-left: -$base-device-padding;
   margin-right: -$base-device-padding;
 
-  li {
+  .li {
     border-bottom: 1px solid $color-gray;
     line-height: 2.6;
     padding-left: $base-device-padding;
@@ -139,7 +139,7 @@ ul {
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.list-hover li {
+.list-hover .li {
   transition-duration: $base-transition;
   transition-property: background-color;
 

@@ -82,17 +82,3 @@ button:-moz-focusring,
 [hidden] {
   display: none;
 }
-
-a:not([href]):not([tabindex]) {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover, &:focus, &:active {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-}

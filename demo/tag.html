@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>app.css - tag</title>
+</head>
+<body>
+<div id="warp" class="container">
+    <div class="row col-lg-6 col-lg-offset-3 tags">
+        <a @click="tag.done = !tag.done" :class="[tag.isMe ? 'tag-me' : '', tag.done ? 'tag-on' : 'tag']" v-for="(tag, index) in list">{{ tag.name }}<span @click="remove(index)" class="close" v-if="tag.isMe">x</span></a>
+    </div>
+</div>
+<script src="./../build/app-ui.js"></script>
+<script src="http://cdn.bootcss.com/vue/2.0.1/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#warp',
+        data () {
+            return {
+                list: [
+                    {
+                        name: 'ONE PIECE',
+                        isMe: false,
+                        done: true
+                    },
+                    {
+                        name: 'NARUTO',
+                        isMe: true,
+                        done: false
+                    },
+                    {
+                        name: 'BLEACH',
+                        isMe: true,
+                        done: true
+                    },
+                    {
+                        name: 'CLANNAD',
+                        isMe: true,
+                        done: false
+                    },
+                    {
+                        name: 'D-Gray-man',
+                        isMe: true,
+                        done: true
+                    },
+                    {
+                        name: 'DEATH NOTE',
+                        isMe: true,
+                        done: true
+                    },
+                    {
+                        name: 'AIR',
+                        isMe: false,
+                        done: true
+                    },
+                    {
+                        name: 'Angle beats',
+                        isMe: true,
+                        done: true
+                    },
+                    {
+                        name: 'FATE / ZERO',
+                        isMe: true,
+                        done: true
+                    },
+                    {
+                        name: 'Re0',
+                        isMe: false,
+                        done: true
+                    },
+                    {
+                        name: 'CODE GEASS',
+                        isMe: true,
+                        done: false
+                    },
+                    {
+                        name: 'FAIRY TAIL',
+                        isMe: false,
+                        done: false
+                    }
+                ]
+            }
+        },
+        methods: {
+            remove (index) {
+                this.list.splice(index, 1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

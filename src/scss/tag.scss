@@ -1,0 +1,56 @@
+@import "./varibiles";
+
+.tags {
+  .tag, .tag-on {
+    position: relative;
+    line-height: $base-font-size;
+    border: 1px solid $color-gray;
+    margin-bottom: 1em;
+    margin-left: .5em;
+    margin-right: .5em;
+    border-radius: $base-font-size;
+    transition-duration: $base-transition;
+    padding: 5px 15px;
+    display: inline-block;
+  }
+
+  .tag {
+    @media (min-width: $min-pc-width) {
+      &:hover {
+        background-color: $color-blue;
+        border-color: $color-blue;
+        color: #fff;
+        transition-duration: 0s;
+      }
+    }
+
+    @media (max-width: $max-pad-width) {
+      &:active {
+        background-color: $color-blue;
+        border-color: $color-blue;
+        color: #fff;
+        transition-duration: 0s;
+      }
+    }
+  }
+
+  .tag-on {
+    border-color: $color-blue;
+    color: $color-blue;
+  }
+
+  .tag-me {
+    padding-right: 2.6em;
+
+    .close {
+      position: absolute;
+      right: .8em;
+      top: 0;
+      width: 1em;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
