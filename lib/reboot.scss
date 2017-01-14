@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 
+*::selection {
+  background-color: transparent;
+}
+
 html {
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;

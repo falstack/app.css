@@ -11,17 +11,21 @@
     <div class="col-lg-6 col-lg-offset-3">
         <ul class="list list-border" style="margin-top: 2em;margin-bottom: 2em">
             <li>带 toggle 的 list</li>
-            <li @click="btn1 = !btn1" :class="['app-ui-wave', 'toggle', btn1 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加 status 类</li>
-            <li @click="btn2 = !btn2" :class="['app-ui-wave', 'toggle', btn2 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加 status 类</li>
+            <li @click="btn1 = !btn1" :class="['app-ui-wave', 'toggle', btn1 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加其它效果</li>
+            <li @click="btn2 = !btn2" :class="['app-ui-wave', 'toggle', btn2 ? 'toggle-left' : 'toggle-right']">带 toggle 的 list 不能添加其它效果</li>
         </ul>
-        <ol class="list list-shadow list-hover">
+        <ul class="list list-shadow" style="margin-top: 2em;margin-bottom: 2em">
             <li>带 status 的 list</li>
             <li class="ico success">成功：ico success</li>
             <li class="ico warning">警告：ico warning</li>
             <li class="ico error">错误：ico error</li>
             <li class="ico info">提示：ico info</li>
             <li class="ico" style="background-image: url(https://www.baidu.com/favicon.ico)">自定义：ico background-image</li>
-        </ol>
+        </ul>
+        <ul class="list list-hover">
+            <li>其它</li>
+            <li class="next">带箭头：next</li>
+        </ul>
     </div>
 </div>
 <script src="./../build/app-ui.js"></script>

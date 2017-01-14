@@ -117,6 +117,17 @@ ul {
       right: 1.1em;
     }
   }
+
+  .next {
+    padding-right: 3em;
+
+    &:after {
+      content: '>';
+      position: absolute;
+      right: 1em;
+      color: $color-gray-hover;
+    }
+  }
 }
 
 .list-border {
