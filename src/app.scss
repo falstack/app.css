@@ -1,2 +1,41 @@
 @import "../lib/normalize";
 @import "../lib/reboot";
+@import "varibiles";
+
+body {
+  background-color: $body-color;
+}
+
+.hr {
+  position: relative;
+  height: $base-font-size;
+  margin-bottom: $base-font-size - 1;
+  border-bottom: 1px solid $color-gray;
+  display: flex;
+  justify-content: center;
+  box-sizing: content-box;
+
+  &:before {
+    content: attr(data-text);
+    display: inline-block;
+    background-color: $body-color;
+    color: $color-gray-hover;
+    font-size: $base-font-size;
+    line-height: $base-font-size * 2 - 1;
+    position: absolute;
+    padding: 0 $base-device-padding;
+  }
+}
+
+.hr-ico {
+  background-size: 0;
+
+  &:before {
+    padding-left: 3em;
+    padding-right: 1em;
+    background-size: 1em;
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-position: 1em center;
+  }
+}
