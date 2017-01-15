@@ -4,39 +4,233 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>app.css - index</title>
+    <title>Document</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+        }
+
+        #div1, #div2 {
+            flex: 1;
+        }
+
+        #div1 {
+            background-color: lightcoral;
+        }
+
+        #div2 {
+            background-color: #00bfef;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row col-lg-6 col-lg-offset-3 tags">
-        <a class="tag">污污污</a>
-        <a class="tag">gogogo</a>
-        <a class="tag">哈哈啊哈</a>
-        <a class="tag">呵呵哒</a>
-        <a class="tag">嘎嘎</a>
-        <a class="tag">萌</a>
-        <a class="tag-on">污污污</a>
-        <a class="tag-on">gogogo</a>
-        <a class="tag-on">哈哈啊哈</a>
-        <a class="tag-on">呵呵哒</a>
-        <a class="tag-on">嘎嘎</a>
-        <a class="tag-on">萌</a>
-        <a class="tag-on">污污污</a>
-        <a class="tag">gogogo</a>
-        <a class="tag">哈哈啊哈</a>
-        <a class="tag-on tag-me">呵呵哒</a>
-        <a class="tag-on tag-me">嘎嘎</a>
-        <a class="tag-on tag-me">萌</a>
-        <a class="tag-on tag-me">污污污</a>
-        <a class="tag tag-me">gogogo</a>
-        <a class="tag">哈哈啊哈</a>
-        <a class="tag">呵呵哒</a>
-        <a class="tag">嘎嘎</a>
-        <a class="tag">萌</a>
-        <a class="tag">污污污</a>
-        <a class="tag">gogogo</a>
-    </div>
-</div>
-<script src="./build/app-ui.js"></script>
+<div id="div1"></div>
+<div id="div2"></div>
+<script>
+    function Touch() {
+        this._methods = ['next', 'prev', 'back', 'load', 'fresh', 'range'];
+
+        this.deltaX = 0;
+
+        this.deltaY = 0;
+
+        this.touches = [];
+    }
+
+    Touch.prototype = {
+
+        constructor: Touch,
+
+        on: function(type, fn, el) {
+
+            if (this._methods.indexOf(type) === -1 || typeof fn !== 'function' || typeof el !== 'object') {
+                // TODO throw some error
+                return this;
+            }
+
+            this._touchPoint(type, fn, el);
+            
+            return this;
+        },
+
+        _touchPoint: function (type, fn, el) {
+            var self = this;
+            var time = 0;
+            // TODO 没能连续调用 touch event
+            this.__addEvent(el, 'touchstart', function (evt) {
+                evt.preventDefault();
+
+                time = new Date().getTime();
+
+                self.touches = [];
+
+                self.touches.push(self.__createObj(evt.changedTouches[0]));
+
+                if (type === 'range') {
+                    self._algorithm(type, fn, el, true);
+                    console.log('123');
+                }
+            });
+
+            this.__addEvent(el, 'touchmove', function (evt) {
+                evt.preventDefault();
+                var touches = evt.changedTouches;
+
+                for (var i=0; i<touches.length; i++) {
+                    self.touches.push(self.__createObj(touches[i]));
+                }
+
+                if ('type' === 'range') {
+                    self._algorithm(type, fn, el);
+                    console.log('123');
+                }
+            });
+
+            this.__addEvent(el, 'touchend', function (evt) {
+                self.time = (new Date().getTime() - time) / 1000;
+
+                evt.preventDefault();
+
+                self._algorithm(type, fn, el, false);
+            });
+
+            this.__addEvent(el, 'touchcancel', function (evt) {
+                // do something
+            });
+        },
+
+        _algorithm: function (type, fn, el, flag = null) {
+            var touches = this.touches;
+            var length = touches.length;
+            var iType = 'range';
+
+            if (length === 1)
+            {
+                // 不监听点击事件
+            }
+
+            // 未考虑迂回滑动
+            var startX = touches[0].pageX;
+            var startY = touches[0].pageY;
+            var endX = touches[length - 1].pageX;
+            var endY = touches[length - 1].pageY;
+
+            this.deltaX = endX - startX;
+            this.deltaY = endY - startY;
+            var tangent = Math.abs(this.deltaY / this.deltaX);
+
+            var maxHorizontalTan = 1;
+            var minVerticalTan = 1;
+
+            if (tangent < maxHorizontalTan) {
+                // 左右滑动
+                if (this.deltaX > 0) {
+                    // 右滑动
+                    iType = 'next';
+                } else {
+                    // 左滑动
+                    iType = 'prev';
+                }
+            }
+
+            if (tangent > minVerticalTan) {
+                // 上下滑动
+                if (this.deltaY > 0) {
+                    // 下滑动
+                    iType = 'load';
+                } else {
+                    // 上滑动
+                    iType = 'fresh';
+                }
+            }
+
+            if (iType === type) {
+                this._fire(type, fn, el, flag)
+            }
+        },
+
+        _fire: function(type, fn, el, flag) {
+            this.type = type;
+            this.el = el;
+
+            if (flag === null) {
+                this.isFirst = false;
+                this.isFinal = false;
+            } else {
+                if (flag) {
+                    this.isFirst = true;
+                    this.isFinal = false;
+                } else {
+                    this.isFirst = false;
+                    this.isFinal = true;
+                }
+            }
+
+            fn.call(this, this);
+        },
+
+        __createObj: function (touch) {
+            return {
+                pageX : touch.pageX,
+                pageY : touch.pageY
+            }
+        },
+
+        __addEvent: function(el, evt, fn) {
+            if (el.addEventListener) {
+                el.addEventListener(evt, fn, false);
+            } else if (el.attachEvent) {
+                el.attachEvent('on' + evt, fn);
+            } else {
+                el['on' + evt] = fn;
+            }
+        },
+    };
+
+    var touch = new Touch();
+</script>
+<script>
+    // TODO use mouse event to polyfill
+    touch.on("next", function (e) {
+        console.log('next - div1');
+    }, document.getElementById('div1'));
+
+    touch.on("next", function (e) {
+        console.log('next - div2');
+    }, document.getElementById('div2'));
+
+    touch.on("prev", function (e) {
+        console.log('prev - div1');
+    }, document.getElementById('div1'));
+
+    touch.on("prev", function (e) {
+        console.log('prev - div2');
+    }, document.getElementById('div2'));
+
+    //
+
+    touch.on("next", function (e) {
+        console.log(e);
+        console.log('next - div1 ~~~');
+    }, document.getElementById('div1'));
+
+    touch.on("next", function (e) {
+        console.log(e);
+        console.log('next - div2 ~~~');
+    }, document.getElementById('div2'));
+
+    touch.on("prev", function (e) {
+        console.log(e);
+        console.log('prev - div1 ~~~');
+    }, document.getElementById('div1'));
+
+    touch.on("range", function (e) {
+        console.log(e);
+        console.log('range - div2 ~~~');
+    }, document.getElementById('div2'));
+</script>
 </body>
 </html>
