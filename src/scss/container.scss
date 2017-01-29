@@ -15,6 +15,11 @@
   padding-right: $base-device-padding;
 }
 
+.container-fluid {
+  padding-left: $base-device-padding;
+  padding-right: $base-device-padding;
+}
+
 @media (min-width: $max-device-width) {
   .container {
     width: $max-device-width;
